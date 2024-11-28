@@ -1,98 +1,82 @@
-# GitHub Automation Testing Challenge
 
-## Overview
-This repository contains a calculator web application, and your task is to create automated tests and set up continuous integration. The challenge focuses on your ability to implement test automation and configure GitHub Actions.
 
-## The Calculator
-The `index.html` file contains a calculator implementation with these features:
-- Basic arithmetic operations (+, -, ×, ÷)
-- Parentheses support
-- Decimal numbers
-- Calculation history
-- Error handling
+## Testing Framework
 
-## Challenge Requirements
+### Chosen Framework: **Playwright**
+Playwright was chosen as the testing framework for this project due to its powerful and versatile features, including:
+- **Cross-browser Support**: Allows testing on modern web browsers like Chromium, Firefox, and WebKit.
+- **End-to-End Testing**: Ideal for simulating real-world user interactions.
+- **Built-in Test Runner**: Comes with a test runner that simplifies setup and configuration.
+- **Rich Debugging Capabilities**: Features like automatic screenshots, video recording, and tracing for test failures.
+- **Ease of Integration**: Works seamlessly with GitHub Actions for CI/CD pipelines.
 
-### 1. Test Implementation
-Choose a JavaScript testing framework (e.g., Jest, Cypress, Playwright) and create test cases for:
-- Basic arithmetic operations
-- Complex calculations with parentheses
-- Error scenarios (invalid expressions, division by zero)
-- UI interactions and history functionality
+---
 
-### 2. GitHub Actions Setup
-Configure GitHub Actions to:
-- Install necessary dependencies
-- Run the test suite
-- Report test results
+## Local Test Setup Instructions
 
-### 3. Continuous Integration
-Implement automated testing that:
-- Runs on every push to any branch
-- Runs on pull requests to the main branch
-- Ensures all tests pass successfully
+Follow these steps to set up and run the tests locally on your development machine:
 
-## Getting Started
+### Prerequisites
+1. **Node.js**: Ensure that Node.js is installed on your system (version 16 or later is recommended). Download it from [Node.js](https://nodejs.org/).
+2. **NPM**: Comes bundled with Node.js. Ensure it's installed and updated (`npm install -g npm`).
 
-1. Fork this repository
-2. Clone your forked repository locally
-3. Create a new branch for your implementation
-4. Choose and set up your testing framework
-5. Write your test cases
-6. Configure GitHub Actions
-7. Create a pull request with your solution
+### Steps to Set Up:
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/your-repository.git
+   cd your-repository
+   ```
 
-## Submission Requirements
+2. **Install Dependencies**:
+   Run the following command to install all project dependencies, including Playwright:
+   ```bash
+   npm install
+   ```
 
-1. Test Files
-   - Organized test structure
-   - Clear test descriptions
-   - Comprehensive test coverage
+3. **Install Browsers**:
+   Playwright requires browser binaries for testing. Run:
+   ```bash
+   npx playwright install
+   ```
 
-2. GitHub Actions Configuration
-   - Workflow file(s) in `.github/workflows`
-   - Proper CI pipeline setup
+4. **Run Tests**:
+   To execute the tests, use:
+   ```bash
+   npx playwright test
+   ```
 
-3. Documentation
-   - Update README with:
-     - Chosen testing framework and rationale
-     - Local test setup instructions
-     - Any additional configuration requirements
+5. **View Test Results**:
+   - **CLI Results**: Test results will appear in the terminal after the test suite finishes.
+   - **HTML Report**: To generate and open the Playwright HTML report, use:
+     ```bash
+     npx playwright show-report
+     ```
 
-4. Pull Request
-   - Create a PR to the main branch
-   - Include detailed description of your implementation
-   - Leave the PR open for review
+---
 
-## Evaluation Criteria
+## Additional Configuration Requirements
 
-1. Test Quality (50%)
-   - Test coverage completeness
-   - Edge case handling
-   - Clear test organization
+1. **Environment Variables**:
+   - Some tests may require environment variables for credentials or configurations.
+   - Create a `.env` file in the project root and populate it with the necessary variables:
+     ```env
+     BASE_URL=http://localhost:3000
+     API_KEY=your-api-key
+     ```
 
-2. CI/CD Implementation (30%)
-   - GitHub Actions configuration
-   - Automation setup
+2. **Custom Test Configurations**:
+   - The default Playwright configuration is located in `playwright.config.js`. You can customize it as needed (e.g., for test retries, timeouts, or parallel execution).
 
-3. Code Quality (20%)
-   - Clean, documented code
-   - Clear pull request documentation
-   - Quality of README updates
+3. **Debugging Tests**:
+   - Run tests in debug mode with:
+     ```bash
+     npx playwright test --debug
+     ```
+   - This allows you to pause tests and inspect elements in the browser.
 
-## Optional Enhancements
-If time permits, consider implementing:
-- Cross-browser testing
-- Performance testing
-- Mobile responsiveness testing
+4. **Artifacts**:
+   - Test artifacts (screenshots, videos, traces) are saved in the `test-results` folder by default for debugging purposes.
 
-## Submission
+---
 
-Please submit your GitHub repository link to the word document.
-Additionally, please keep your repository private and invite `Tom-Dynamsoft` and `felixindynamsoft` as a collaborator!
-
-## Questions?
-
-For any questions about the challenge requirements, please create an issue in this repository.
-
-Good luck!
+This section ensures anyone setting up the project locally or contributing to it understands the testing framework, why it was chosen, and how to configure and run the tests successfully. 
